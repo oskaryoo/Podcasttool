@@ -278,6 +278,11 @@ export default function App() {
     @media (max-width: 900px) {
       .app-flex-root {
         flex-direction: column !important;
+        padding: 0.5rem !important;
+        row-gap: 2rem !important;
+        gap: 1rem !important;
+        width: auto !important;
+        height: auto !important;
       }
       .app-flex-grid, .app-flex-controls {
         width: 100% !important;
@@ -285,7 +290,37 @@ export default function App() {
         min-width: 0 !important;
         height: auto !important;
         min-height: 0 !important;
-        padding: 1rem !important;
+        position: static !important;
+        z-index: auto !important;
+      }
+      .app-flex-controls {
+        padding: 0 !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        overflow: auto !important;
+        height: auto !important;
+        max-height: auto
+         !important;
+        gap: 2rem !important;
+        font-size: 16px !important;
+      }
+      .app-flex-controls * {
+        font-size: 16px !important;
+      }
+      .app-flex-controls > div {
+        display: flex !important;
+        flex-direction: column-reverse !important;
+        padding: 0 !important;
+        gap: 2rem !important;
+        height: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        aspect-ratio: auto !important;
+      }
+      .app-flex-controls > div > div {
+        flex-direction: column !important;
+        height: auto !important;
+        max-height: none !important;
       }
     }
   `;
@@ -414,7 +449,7 @@ export default function App() {
         <div className="app-flex-controls" style={{ width: '50%', height: '100vh', minHeight: 0, maxHeight: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxSizing: 'border-box', padding: 0, overflow: 'auto' }}>
           <div style={{ width: '100%', aspectRatio: '1/1', display: 'flex', flexDirection: 'row', alignItems: 'stretch', justifyContent: 'stretch', padding: '2rem', overflow: 'hidden', boxSizing: 'border-box', height: '100%', maxHeight: '100%', gap: '2rem' }}>
             {/* Logo Column */}
-            <div ref={logoColRef} style={{ flex: '1 1 0%', minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', height: '100%' }}>
+            <div ref={logoColRef} className="logo-container" style={{ flex: '1 1 0%', minWidth: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', height: '100%' }}>
               <img src={imgLogo} alt="Logo" style={{ width: '100%', height: 'auto', objectFit: 'contain', display: 'block', maxHeight: '100%' }} />
               {/* In the logo column, wrap both buttons in a div with 1rem gap */}
               <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem' }}>
@@ -424,9 +459,9 @@ export default function App() {
             </div>
             {/* Controls Column */}
             <div style={{ flex: '1 1 0%', minWidth: 0, display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start', alignItems: 'stretch' }}>
-              <div style={{ width: '100%', height: logoColWidth ? logoColWidth : '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'stretch', transition: 'height 0.2s' }}>
+              <div style={{ width: '100%', height: 'auto', display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'stretch', transition: 'height 0.2s' }}>
                 {/* Input group */}
-                <div id="input-group-container" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', height: '100%' }}>
+                <div id="input-group-container" className="input-group" style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', height: '100%' }}>
                   {/* Upload image */}
                   <div style={{ alignSelf: 'stretch', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', gap: 8, display: 'flex' }}>
                     <div style={{ alignSelf: 'stretch', color: 'black', fontSize: 24, fontFamily: 'PP Editorial New, serif', fontWeight: 400, wordWrap: 'break-word' }}>Upload image</div>
