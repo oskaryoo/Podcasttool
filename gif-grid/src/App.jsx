@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import GIF from 'gif.js';
-import GIFWorker from 'gif.js/dist/gif.worker.js?url';
+// import GIFWorker from 'gif.js/dist/gif.worker.js?url'; // Removed for production compatibility
 import html2canvas from 'html2canvas';
 
 const GRID_SIZE = 4;
@@ -119,7 +119,7 @@ export default function App() {
         quality: 10,
         width: gridRef.current.offsetWidth,
         height: gridRef.current.offsetHeight,
-        workerScript: GIFWorker,
+        workerScript: '/gif.worker.js', // Use public path for production
         repeat: 0, // infinite loop
         delay: 1000, // 1 frame per second
       });
