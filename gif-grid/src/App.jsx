@@ -32,7 +32,7 @@ function ensureHex(color, fallback = '#000000') {
 }
 
 // Add logo import at the top
-const imgLogo = "http://localhost:3845/assets/ca17e1b1c220829357b878920d5466b60adcd654.svg";
+const imgLogo = "/logo.svg";
 
 export default function App() {
   // 0 = circle, 1 = square
